@@ -3,7 +3,6 @@ import actions from './devices.actions';
 import IAction from '../../../types/IAction';
 import SmartDevice from '../../../types/SmartDevice';
 import SmartDeviceDetails from '../../../types/SmartDeviceDetails';
-import { AxiosResponse } from 'axios';
 
 type DispatchFunction = (action: IAction<SmartDevice[] | SmartDeviceDetails | string | void>) => void;
 
@@ -25,4 +24,19 @@ export const loadDeviceDetailsAsync = (id: string) => (dispatch: DispatchFunctio
             actions.deviceDetailsLoadSuccess(response.data as SmartDeviceDetails)
         ))
         .catch((error) => dispatch(actions.deviceDetailsLoadError(error.message)));
+}
+
+export const connectDevicesRefresher = () => (dispatch: DispatchFunction) => {
+    dispatch(actions.devicesRefresherConnect());
+
+    try {
+        DeviceService.connectDevicesRefresher((socket) => {
+            socket.on("message", (message: string) => {
+                const deviceDetails: SmartDeviceDetails = JSON.parse(message);
+                dispatch(actions.devicesRefresherUpdate(deviceDetails));
+            });
+        });
+    } catch(error: any) {
+        dispatch(actions.devicesRefresherError(error.message));
+    }
 }

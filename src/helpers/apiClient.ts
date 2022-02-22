@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 const apiClient = () => {
     const API_URL = 'http://localhost:3400/api/v1'
