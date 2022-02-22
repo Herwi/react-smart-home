@@ -1,6 +1,6 @@
-import SmartDeviceDetails from "./SmartDeviceDetails";
+import ISmartDeviceDetails from "./ISmartDeviceDetails";
 
-export default class SmartOutlet extends SmartDeviceDetails {
+export default class ISmartOutlet extends ISmartDeviceDetails {
     isTurnedOn: boolean;
     powerConsumption: number;
 

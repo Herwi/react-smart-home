@@ -1,0 +1,43 @@
+.outer {
+    padding: 5px 0;
+}
+
+.device {
+    background: rgb(249,250,251);
+    background: linear-gradient(180deg, rgba(249,250,251,1) 0%, rgba(232,237,241,1) 100%);
+    width: 100%;
+    border-radius: 8px;
+    color: rgb(33,53,82);
+    border: solid 2px #fff;
+    clear: both;
+    display: inline-block;
+    font-size: 48px;
+    box-sizing: border-box;
+}
+.icon {
+    display: inherit;
+    line-height: 60px;
+    width: 48px;
+}
+
+.name {
+    transform: translateY(-11px);
+    padding: 0 10px;
+    width: calc(100% - (48px * 2));
+    font-size: 24px;
+    box-sizing: border-box;
+    display: inherit;
+    text-align: center;
+}
+
+.connected {
+    border-right: solid 8px limegreen;
+}
+
+.poorConnection {
+    border-right: solid 8px coral;
+}
+
+.disconnected {
+    border-right: solid 8px crimson;
+}

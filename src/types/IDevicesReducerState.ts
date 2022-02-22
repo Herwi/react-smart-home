@@ -1,11 +1,11 @@
-import SmartDevice from "./SmartDevice";
-import SmartDeviceDetails from "./SmartDeviceDetails";
+import ISmartDevice from "./ISmartDevice";
+import ISmartDeviceDetails from "./ISmartDeviceDetails";
 
 export default interface initialStateInterface {
     readonly isLoadingDevices: boolean,
     readonly devicesErrorMessage: string | null,
-    readonly devices: SmartDevice[],
+    readonly devices: ISmartDevice[],
     readonly isLoadingDeviceDetails: boolean,
     readonly deviceDetailsErrorMessage: string | null,
-    readonly deviceDetails: SmartDeviceDetails | null
+    readonly deviceDetails: ISmartDeviceDetails | null
 }

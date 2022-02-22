@@ -1,13 +1,13 @@
 import IAction from '../../../types/IAction';
-import SmartDevice from '../../../types/SmartDevice';
-import SmartDeviceDetails from '../../../types/SmartDeviceDetails';
+import ISmartDevice from '../../../types/ISmartDevice';
+import ISmartDeviceDetails from '../../../types/ISmartDeviceDetails';
 import actionTypes from './devices.actionTypes';
 import initialState from './devices.initialState';
 import IDevicesReducerState from '../../../types/IDevicesReducerState';
 
 const devicesReducer = (
     state: IDevicesReducerState = initialState,
-    { type, payload }: IAction<SmartDevice[] | SmartDeviceDetails | string>
+    { type, payload }: IAction<ISmartDevice[] | ISmartDeviceDetails | string>
 ): IDevicesReducerState => {
     switch (type) {
         case actionTypes.DEVICES_LOAD_START:
@@ -21,7 +21,7 @@ const devicesReducer = (
             return {
                 ...state,
                 isLoadingDevices: false,
-                devices: payload as SmartDevice[]
+                devices: payload as ISmartDevice[]
             }
         case actionTypes.DEVICES_LOAD_ERROR:
             return {
@@ -40,7 +40,7 @@ const devicesReducer = (
             return {
                 ...state,
                 isLoadingDeviceDetails: false,
-                deviceDetails: payload as SmartDeviceDetails
+                deviceDetails: payload as ISmartDeviceDetails
             }
         case actionTypes.DEVICE_DETAILS_LOAD_ERROR:
             return {
@@ -49,11 +49,11 @@ const devicesReducer = (
                 deviceDetailsErrorMessage: payload as string
             }
         case actionTypes.DEVICES_REFRESHER_UPDATE:
-            let deviceDetails: SmartDeviceDetails | null = payload as SmartDeviceDetails;
-            const index = state.devices.findIndex((device: SmartDevice) => {
+            let deviceDetails: ISmartDeviceDetails | null = payload as ISmartDeviceDetails;
+            const index = state.devices.findIndex((device: ISmartDevice) => {
                 return (deviceDetails != null && device.id === deviceDetails.id);
             });
-            const { type, id, name, connectionState }: SmartDeviceDetails = deviceDetails;
+            const { type, id, name, connectionState }: ISmartDeviceDetails = deviceDetails;
             if(state.deviceDetails == null || deviceDetails.id !== state.deviceDetails.id) {
                 deviceDetails = state.deviceDetails;
             }

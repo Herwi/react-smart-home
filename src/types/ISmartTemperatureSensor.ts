@@ -1,6 +1,6 @@
-import SmartDeviceDetails from "./SmartDeviceDetails";
+import ISmartDeviceDetails from "./ISmartDeviceDetails";
 
-export default class SmartTemperatureSensor extends SmartDeviceDetails {
+export default class ISmartTemperatureSensor extends ISmartDeviceDetails {
     temperature: number; // in Celsius
 
     constructor(

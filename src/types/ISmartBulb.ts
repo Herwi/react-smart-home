@@ -1,6 +1,6 @@
-import SmartDeviceDetails from "./SmartDeviceDetails";
+import ISmartDeviceDetails from "./ISmartDeviceDetails";
 
-export default class SmartBulb extends SmartDeviceDetails {
+export default class ISmartBulb extends ISmartDeviceDetails {
     isTurnedOn: boolean;
     brightness: number; // <0, 100>
     color: string; // in the CSS formats

@@ -1,4 +1,4 @@
-export default abstract class SmartDeviceDetails {
+export default abstract class ISmartDeviceDetails {
     type: string;
     id: string;
     name: string;

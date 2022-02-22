@@ -1,6 +1,6 @@
 import IAction from '../../../types/IAction';
-import SmartDevice from '../../../types/SmartDevice';
-import SmartDeviceDetails from '../../../types/SmartDeviceDetails';
+import ISmartDevice from '../../../types/ISmartDevice';
+import ISmartDeviceDetails from '../../../types/ISmartDeviceDetails';
 import actionTypes from './devices.actionTypes';
 
 const devicesLoadStart = (): IAction<void> => {
@@ -9,7 +9,7 @@ const devicesLoadStart = (): IAction<void> => {
     };
 };
 
-const devicesLoadSuccess = (devices: SmartDevice[]): IAction<SmartDevice[]> => {
+const devicesLoadSuccess = (devices: ISmartDevice[]): IAction<ISmartDevice[]> => {
     return {
         type: actionTypes.DEVICES_LOAD_SUCCESS,
         payload: devices
@@ -29,7 +29,7 @@ const deviceDetailsLoadStart = (): IAction<void> => {
     };
 };
 
-const deviceDetailsLoadSuccess = (device: SmartDeviceDetails): IAction<SmartDeviceDetails> => {
+const deviceDetailsLoadSuccess = (device: ISmartDeviceDetails): IAction<ISmartDeviceDetails> => {
     return {
         type: actionTypes.DEVICE_DETAILS_LOAD_SUCCESS,
         payload: device
@@ -49,7 +49,7 @@ const devicesRefresherConnect = (): IAction<void> => {
     };
 };
 
-const devicesRefresherUpdate = (device: SmartDeviceDetails): IAction<SmartDeviceDetails> => {
+const devicesRefresherUpdate = (device: ISmartDeviceDetails): IAction<ISmartDeviceDetails> => {
     return {
         type: actionTypes.DEVICES_REFRESHER_UPDATE,
         payload: device

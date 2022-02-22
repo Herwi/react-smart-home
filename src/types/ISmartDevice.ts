@@ -1,4 +1,4 @@
-export default interface SmartDevice {
+export default interface ISmartDevice {
     type: string;
     id: string;
     name: string;
