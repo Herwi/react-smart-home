@@ -8,8 +8,18 @@ body {
   background: rgb(249,250,251);
   background: linear-gradient(180deg, rgba(249,250,251,1) 0%, rgba(232,237,241,1) 100%);
   min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
 }
+
 #root {
+  width: 100vw;
+  height: calc(100vh - 30px);
   padding-top: 30px;
+  display: flex;
+  flex-flow: column;
+}
+
+window, html {
+  max-width: 100vw;
+  overflow-x: hidden;
 }

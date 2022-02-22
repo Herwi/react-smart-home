@@ -14,6 +14,11 @@
     font-size: 48px;
     box-sizing: border-box;
 }
+
+.device:hover {
+    cursor: pointer;
+}
+
 .icon {
     display: inherit;
     line-height: 60px;

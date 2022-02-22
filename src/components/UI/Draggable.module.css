@@ -1,3 +1,18 @@
+.outer {
+    flex: 1;
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.parent {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+
 .draggable {
-    transform: translate(0px, 0px);
+    display: inline-block;
 }

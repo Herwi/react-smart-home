@@ -1,9 +1,12 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, MouseEvent } from 'react';
 import ISmartDevice from '../../types/ISmartDevice';
 import classes from './SmartDevice.module.css';
 import { MdLightbulb, MdElectricalServices, MdDeviceThermostat } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
+import {loadDeviceDetailsAsync} from '../../redux/reducers/devices/devices.thunks';
 
 const SmartDevice: React.FC<{ device: ISmartDevice }> = ({ device }) => {
+    const dispatch = useDispatch();
     let color: string;
     let icon: ReactElement;
     switch (device.connectionState) {
@@ -26,8 +29,13 @@ const SmartDevice: React.FC<{ device: ISmartDevice }> = ({ device }) => {
         default:
             icon = <MdElectricalServices />
     }
+
+    const onClickHandler = (event: MouseEvent) => {
+        dispatch(loadDeviceDetailsAsync(device.id));
+    }
+
     return (
-        <div className={classes.outer}>
+        <div className={classes.outer} onClick={onClickHandler}>
             <div className={`${classes.device} ${color}`}>
                 <div className={classes.icon}>{icon}</div>
                 <div className={classes.name}>{device.name}</div>

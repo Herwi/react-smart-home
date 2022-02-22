@@ -5,7 +5,6 @@ import { loadDevicesAsync, connectDevicesRefresher } from '../../redux/reducers/
 import IDevicesReducerState from '../../types/IDevicesReducerState';
 import SmartDevice from './SmartDevice';
 import Card from '../UI/Card';
-import Draggable from '../UI/Draggable';
 
 const SmartDevicesList: React.FC = (props) => {
   const dispatch = useDispatch();
@@ -15,7 +14,10 @@ const SmartDevicesList: React.FC = (props) => {
     dispatch(connectDevicesRefresher());
   }, [dispatch]);
   return (
-    <Card small>
+    <Card
+      small
+      center
+      fixedWidth>
       {devices.map((d: ISmartDevice) => <SmartDevice key={d.id} device={d} />)}
     </Card>
   );

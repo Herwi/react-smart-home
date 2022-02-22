@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import interact from 'interactjs';
 import classes from './Draggable.module.css';
 
@@ -28,7 +28,7 @@ const Draggable: React.FC = ({ children }) => {
                 })
             ],
             // enable autoScroll
-            autoScroll: true,
+            autoScroll: false,
 
             listeners: {
                 // call this function on every dragmove event
@@ -36,7 +36,11 @@ const Draggable: React.FC = ({ children }) => {
             }
         })
     return (
-        <div className={classes.draggable}>{children}</div>
+        <div className={classes.outer}>
+            <div className={classes.parent}>
+                <div className={classes.draggable}>{children}</div>
+            </div>
+        </div>
     );
 };
 

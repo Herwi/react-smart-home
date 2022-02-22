@@ -33,7 +33,6 @@ const devicesReducer = (
             return {
                 ...state,
                 isLoadingDeviceDetails: true,
-                deviceDetails: null,
                 deviceDetailsErrorMessage: null
             }
         case actionTypes.DEVICE_DETAILS_LOAD_SUCCESS:
@@ -46,6 +45,7 @@ const devicesReducer = (
             return {
                 ...state,
                 isLoadingDeviceDetails: false,
+                deviceDetails: null,
                 deviceDetailsErrorMessage: payload as string
             }
         case actionTypes.DEVICES_REFRESHER_UPDATE:
