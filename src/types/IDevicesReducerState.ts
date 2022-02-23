@@ -7,5 +7,6 @@ export default interface initialStateInterface {
     readonly devices: ISmartDevice[],
     readonly isLoadingDeviceDetails: boolean,
     readonly deviceDetailsErrorMessage: string | null,
-    readonly deviceDetails: ISmartDeviceDetails | null
+    readonly deviceDetails: ISmartDeviceDetails | null,
+    readonly isUnloadingDeviceDetails: boolean
 }

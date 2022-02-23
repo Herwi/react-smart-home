@@ -36,7 +36,14 @@ export const connectDevicesRefresher = () => (dispatch: DispatchFunction) => {
                 dispatch(actions.devicesRefresherUpdate(deviceDetails));
             });
         });
-    } catch(error: any) {
+    } catch (error: any) {
         dispatch(actions.devicesRefresherError(error.message));
     }
+}
+
+export const unloadDeviceDetails = () => (dispatch: DispatchFunction) => {
+    dispatch(actions.deviceDetailsUnloadStart());
+    setTimeout(() => {
+        dispatch(actions.deviceDetailsUnloadSuccess());
+    }, 400)
 }

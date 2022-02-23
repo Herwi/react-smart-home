@@ -7,8 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: rgb(249,250,251);
   background: linear-gradient(180deg, rgba(249,250,251,1) 0%, rgba(232,237,241,1) 100%);
-  min-height: 100vh;
+  height: 100%;
   width: 100vw;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #root {

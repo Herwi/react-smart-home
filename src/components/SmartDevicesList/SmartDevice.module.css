@@ -13,16 +13,21 @@
     display: inline-block;
     font-size: 48px;
     box-sizing: border-box;
+    opacity: 1;
+    transition: 0.3s;
 }
 
 .device:hover {
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .icon {
     display: inherit;
     line-height: 60px;
     width: 48px;
+    opacity: 1;
+    transition: 0.3s;
 }
 
 .name {
@@ -33,6 +38,8 @@
     box-sizing: border-box;
     display: inherit;
     text-align: center;
+    font-weight: 400;
+    transition: 0.14s;
 }
 
 .connected {
@@ -45,4 +52,16 @@
 
 .disconnected {
     border-right: solid 8px crimson;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.opacity {
+    opacity: 0.6;
+}
+
+.blocked:hover {
+    cursor: not-allowed;
 }

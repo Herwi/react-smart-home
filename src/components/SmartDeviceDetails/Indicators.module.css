@@ -1,0 +1,8 @@
+.indicators {
+    width: 100%;
+    height: calc(30% - 10px);
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

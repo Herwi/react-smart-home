@@ -1,44 +1,54 @@
 import { ReactElement } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Card from "../UI/Card";
 import Draggable from "../UI/Draggable";
 import IDevicesReducerState from '../../types/IDevicesReducerState';
-import SmartBulbDetails from './SmartBulbDetails';
+import DetailsBulb from './DetailsBulb';
 import ISmartBulb from '../../types/ISmartBulb';
-import SmartOutletDetails from './SmartOutletDetails';
+import DetailsOutlet from './DetailsOutlet';
 import ISmartOutlet from '../../types/ISmartOutlet';
-import SmartTemperatureSensorDetails from './SmartTemperatureSensorDetails';
+import DetailsTemperatureSensor from './DetailsTemperatureSensor';
 import ISmartTemperatureSensor from '../../types/ISmartTemperatureSensor';
+import classes from './SmartDeviceDetails.module.css';
+import Indicators from './Indicators';
 
 const SmartDeviceDetails = () => {
-    const dispatch = useDispatch();
     const deviceDetails = useSelector((state: IDevicesReducerState) => state.deviceDetails);
+    const isUnloadingDeviceDetails = useSelector((state: IDevicesReducerState) => state.isUnloadingDeviceDetails);
 
     let details: ReactElement | null = null;
 
     if (deviceDetails) {
+        // rendering proper component
         switch (deviceDetails.type) {
             case 'bulb':
-                details = <SmartBulbDetails device={deviceDetails as ISmartBulb} />
+                details = <DetailsBulb
+                    device={deviceDetails as ISmartBulb}
+                />
                 break;
             case 'outlet':
-                details = <SmartOutletDetails
+                details = <DetailsOutlet
                     device={deviceDetails as ISmartOutlet}
                 />
                 break;
             case 'temperatureSensor':
-                details = <SmartTemperatureSensorDetails
+                details = <DetailsTemperatureSensor
                     device={deviceDetails as ISmartTemperatureSensor}
                 />
                 break;
             default:
                 break;
         }
-        if(details) {
+        // if deviceDetails exists render component, otherwise just render empty mark
+        if (details) {
             return (
-                <Draggable>
-                    <Card>
-                        {details}
+                <Draggable resizable beforeHide={isUnloadingDeviceDetails}>
+                    <Card fill>
+                        <div className={classes.inner}>
+                            <div className={classes.title}>{deviceDetails.name}</div>
+                            <Indicators device={deviceDetails}/>
+                            {details}
+                        </div>
                     </Card>
                 </Draggable>
             );

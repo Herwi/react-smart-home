@@ -48,6 +48,17 @@ const devicesReducer = (
                 deviceDetails: null,
                 deviceDetailsErrorMessage: payload as string
             }
+        case actionTypes.DEVICE_DETAILS_UNLOAD_START:
+            return {
+                ...state,
+                isUnloadingDeviceDetails: true
+            }
+        case actionTypes.DEVICE_DETAILS_UNLOAD_SUCCESS:
+            return {
+                ...state,
+                deviceDetails: null,
+                isUnloadingDeviceDetails: false
+            }
         case actionTypes.DEVICES_REFRESHER_UPDATE:
             let deviceDetails: ISmartDeviceDetails | null = payload as ISmartDeviceDetails;
             const index = state.devices.findIndex((device: ISmartDevice) => {

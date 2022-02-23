@@ -6,7 +6,8 @@ const initialState: IDevicesReducerState = {
     devices: [],
     isLoadingDeviceDetails: false,
     deviceDetailsErrorMessage: null,
-    deviceDetails: null
+    deviceDetails: null,
+    isUnloadingDeviceDetails: false
 }
 
 export default initialState;

@@ -4,7 +4,7 @@ import ISmartOutlet from '../../types/ISmartOutlet';
 const SmartOutletDetails: React.FC<{ device: ISmartOutlet }> = ({ device }) => {
     return (
         <>
-            {device.name}
+            State: {(device.isTurnedOn) ? "On" : "Off"}
         </>
     );
 };

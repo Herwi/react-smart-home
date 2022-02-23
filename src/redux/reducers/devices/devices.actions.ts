@@ -43,6 +43,18 @@ const deviceDetailsLoadError = (errorMessage: string): IAction<string> => {
     };
 };
 
+const deviceDetailsUnloadStart = (): IAction<void> => {
+    return {
+        type: actionTypes.DEVICE_DETAILS_UNLOAD_START
+    };
+};
+
+const deviceDetailsUnloadSuccess = (): IAction<void> => {
+    return {
+        type: actionTypes.DEVICE_DETAILS_UNLOAD_SUCCESS
+    };
+};
+
 const devicesRefresherConnect = (): IAction<void> => {
     return {
         type: actionTypes.DEVICES_REFRESHER_CONNECT
@@ -69,6 +81,8 @@ const actions = {
     deviceDetailsLoadStart,
     deviceDetailsLoadSuccess,
     deviceDetailsLoadError,
+    deviceDetailsUnloadStart,
+    deviceDetailsUnloadSuccess,
     devicesRefresherConnect,
     devicesRefresherUpdate,
     devicesRefresherError

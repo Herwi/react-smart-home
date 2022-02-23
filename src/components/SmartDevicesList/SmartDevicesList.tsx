@@ -9,16 +9,25 @@ import Card from '../UI/Card';
 const SmartDevicesList: React.FC = (props) => {
   const dispatch = useDispatch();
   const devices = useSelector((state: IDevicesReducerState) => state.devices)
+  const deviceDetails = useSelector((state: IDevicesReducerState) => state.deviceDetails)
+
+  // loading SmartDevices list and connecting to refresher socket
   useEffect(() => {
     dispatch(loadDevicesAsync());
     dispatch(connectDevicesRefresher());
   }, [dispatch]);
+  
   return (
     <Card
       small
       center
       fixedWidth>
-      {devices.map((d: ISmartDevice) => <SmartDevice key={d.id} device={d} />)}
+      {devices.map((d: ISmartDevice) => <SmartDevice
+        key={d.id}
+        device={d}
+        active={deviceDetails !== null && deviceDetails.id === d.id}
+      />
+      )}
     </Card>
   );
 }
