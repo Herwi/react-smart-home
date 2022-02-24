@@ -47,7 +47,7 @@ const Draggable: React.FC<{ resizable?: boolean, beforeHide?: boolean }> = ({ ch
             edges: { left: false, right: true, bottom: true, top: false },
             modifiers: [
                 interact.modifiers.restrictSize({
-                    min: { width: 300, height: 200 }
+                    min: { width: 300, height: 230 }
                 })
             ]
         })

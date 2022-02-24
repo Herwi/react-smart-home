@@ -1,28 +1,47 @@
 import React, { ReactElement } from 'react';
 import ISmartDeviceDetails from '../../types/ISmartDeviceDetails';
+import ISmartBulb from '../../types/ISmartBulb';
+import ISmartOutlet from '../../types/ISmartOutlet';
 import {
     MdSignalWifi4Bar,
     MdSignalWifiStatusbarConnectedNoInternet2,
     MdSignalWifiConnectedNoInternet0,
     MdLightbulb,
     MdElectricalServices,
-    MdDeviceThermostat
+    MdDeviceThermostat,
+    MdToggleOff,
+    MdToggleOn
 } from 'react-icons/md';
 import Indicator from './Indicator';
 import classes from './Indicators.module.css';
 
 const Indicators: React.FC<{ device: ISmartDeviceDetails }> = ({ device }) => {
-    const indicators: { icon: ReactElement, opacity?: boolean }[] = [];
+    interface indicator { icon: ReactElement, opacity?: boolean }
+    const indicators: indicator[] = [];
+
+    const generateStateIndicator: (device: ISmartBulb | ISmartOutlet) => indicator = (device) => {
+        if (device.isTurnedOn) {
+            return {
+                icon: <MdToggleOn />
+            }
+        }
+        return {
+            icon: <MdToggleOff />,
+            opacity: true
+        }
+    }
 
     if (device.type === 'bulb') {
         indicators.push({
             icon: <MdLightbulb />
         });
+        indicators.push(generateStateIndicator(device as ISmartBulb));
     }
     else if (device.type === 'outlet') {
         indicators.push({
             icon: <MdElectricalServices />
         });
+        indicators.push(generateStateIndicator(device as ISmartOutlet));
     }
     else {
         indicators.push({
