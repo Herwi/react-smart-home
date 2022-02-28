@@ -1,6 +1,9 @@
+import ISmartDeviceType from "./ISmartDeviceType";
+import IConnectionState from "./IConnectionState";
+
 export default interface ISmartDevice {
-    type: string;
-    id: string;
-    name: string;
-    connectionState: string; // 'connected', 'disconnected' or 'poorConnection'
+  type: ISmartDeviceType;
+  id: string;
+  name: string;
+  connectionState: IConnectionState;
 }

@@ -1,13 +1,21 @@
-export default abstract class ISmartDeviceDetails {
-    type: string;
-    id: string;
-    name: string;
-    connectionState: string; // 'connected', 'disconnected' or 'poorConnection'
+import ISmartDeviceType from "./ISmartDeviceType";
+import IConnectionState from "./IConnectionState";
 
-    constructor(type: string, id: string, name: string, connectionState: string) {
-        this.type = type;
-        this.id = id;
-        this.name = name;
-        this.connectionState = connectionState;
-    }
+export default abstract class ISmartDeviceDetails {
+  type: ISmartDeviceType;
+  id: string;
+  name: string;
+  connectionState: IConnectionState;
+
+  constructor(
+    type: ISmartDeviceType,
+    id: string,
+    name: string,
+    connectionState: IConnectionState
+  ) {
+    this.type = type;
+    this.id = id;
+    this.name = name;
+    this.connectionState = connectionState;
+  }
 }

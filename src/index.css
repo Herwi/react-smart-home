@@ -1,12 +1,16 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(249,250,251);
-  background: linear-gradient(180deg, rgba(249,250,251,1) 0%, rgba(232,237,241,1) 100%);
+  background: rgb(249, 250, 251);
+  background: linear-gradient(
+    180deg,
+    rgba(249, 250, 251, 1) 0%,
+    rgba(232, 237, 241, 1) 100%
+  );
   height: 100%;
   width: 100vw;
   background-repeat: no-repeat;
@@ -21,7 +25,8 @@ body {
   flex-flow: column;
 }
 
-window, html {
+window,
+html {
   max-width: 100vw;
   overflow-x: hidden;
 }

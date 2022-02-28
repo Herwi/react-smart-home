@@ -1,6 +1,6 @@
-import {Action} from 'redux';
+import { Action } from "redux";
 
 export default interface IAction<T> extends Action<string> {
-    type: string;
-    payload? : T;
+  type: string;
+  payload?: T;
 }

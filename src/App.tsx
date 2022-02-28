@@ -1,6 +1,6 @@
-import React from 'react';
-import SmartDeviceDetails from './components/SmartDeviceDetails/SmartDeviceDetails';
-import SmartDevicesList from './components/SmartDevicesList/SmartDevicesList';
+import React from "react";
+import SmartDeviceDetails from "./components/SmartDeviceDetails/SmartDeviceDetails";
+import SmartDevicesList from "./components/SmartDevicesList/SmartDevicesList";
 
 const App: React.FC = (props) => {
   return (
@@ -9,6 +9,6 @@ const App: React.FC = (props) => {
       <SmartDeviceDetails />
     </>
   );
-}
+};
 
 export default App;

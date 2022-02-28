@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiClient = () => {
-    const API_URL = 'http://localhost:3400/api/v1'
+  const API_URL = "http://localhost:3400/api/v1";
 
-    const axiosInstance = axios.create({
-        baseURL: API_URL,
-        responseType: 'json'
-    });
+  const axiosInstance = axios.create({
+    baseURL: API_URL,
+    responseType: "json",
+  });
 
-    return axiosInstance;
-}
+  return axiosInstance;
+};
 
 export default apiClient;
